@@ -8,6 +8,7 @@
 5. [If else](https://www.tutorialspoint.com/dart_programming/dart_programming_if_else_statement.htm)
 6. [Hide button](https://stackoverflow.com/questions/44489804/how-to-show-hide-widgets-programmatically-in-flutter)
 
+## Jawaban
 1. Stateless widget adalah widget yang statis dan hanya akan mengikuti state awal yang telah diassign kepadanya dan tidak akan berubah meskipun data disekitarnya berubah. Namun, stateful widget adalah widget yang lebih dinamis dan dapat berubah sesuai dengan data disekitarnya. Contoh dari stateless widget adalah increment button karena ia tidak akan berubah berapapun nilai counternya sedangkan untuk stateful widget contohnya adalah counter serta text karena ia akan berubah setiap button diclick.
 2. Dalam proyek ini saya menggunakan dua widget yaitu Text dan Floating Action Button. Text ini memiliki fungsi untuk menampilkan text yang ingin ditampilkan dalam program sementara Floating Action Button berfungsi untuk membuat sebuah button yang dapat kita gunakan untuk melaksanakan sebuah action atau fungsi yang telah diassign kepadanya.
 3. `setState()` berfungsi untuk memanggil kembali build method yang telah kita definisikan agar ia merepresentasikan value baru yang telah kita update. Variabel yang akan dipengaruhi oleh `setState()` sendiri adalah semua variabel yang masuk didalam lingkupnya. 
