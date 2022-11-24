@@ -117,7 +117,7 @@ class _MyWatchListPageState extends State<MyWatchListPage> {
           ),
         ),
         body: FutureBuilder(
-            future: MyWatchListModel.fetchMyWatchList(),
+            future: Watchlist.fetchMyWatchList(),
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null) {
                 return const Center(child: CircularProgressIndicator());

@@ -1,19 +1,18 @@
 // To parse this JSON data, do
 //
-//     final myWatchList = myWatchListFromJson(jsonString);
+//     final watchlist = watchlistFromJson(jsonString);
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-List<MyWatchListModel> myWatchListFromJson(String str) =>
-    List<MyWatchListModel>.from(
-        json.decode(str).map((x) => MyWatchListModel.fromJson(x)));
+List<Watchlist> watchlistFromJson(String str) =>
+    List<Watchlist>.from(json.decode(str).map((x) => Watchlist.fromJson(x)));
 
-String myWatchListToJson(List<MyWatchListModel> data) =>
+String watchlistToJson(List<Watchlist> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class MyWatchListModel {
-  MyWatchListModel({
+class Watchlist {
+  Watchlist({
     required this.model,
     required this.pk,
     required this.fields,
@@ -23,8 +22,7 @@ class MyWatchListModel {
   int pk;
   Fields fields;
 
-  factory MyWatchListModel.fromJson(Map<String, dynamic> json) =>
-      MyWatchListModel(
+  factory Watchlist.fromJson(Map<String, dynamic> json) => Watchlist(
         model: modelValues.map[json["model"]],
         pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),
@@ -35,8 +33,7 @@ class MyWatchListModel {
         "pk": pk,
         "fields": fields.toJson(),
       };
-
-  static Future<List<MyWatchListModel>> fetchMyWatchList() async {
+  static Future<List<Watchlist>> fetchMyWatchList() async {
     var url =
         Uri.parse('https://tugas2pbp-yosua.herokuapp.com/mywatchlist/json/');
     var response = await http.get(
@@ -47,14 +44,12 @@ class MyWatchListModel {
       },
     );
 
-    // melakukan decode response menjadi bentuk json
     var data = jsonDecode(utf8.decode(response.bodyBytes));
 
-    // melakukan konversi data json menjadi object ToDo
-    List<MyWatchListModel> listMyWatchList = [];
+    List<Watchlist> listMyWatchList = [];
     for (var i in data) {
       if (i != null) {
-        listMyWatchList.add(MyWatchListModel.fromJson(i));
+        listMyWatchList.add(Watchlist.fromJson(i));
       }
     }
 
@@ -89,15 +84,16 @@ class Fields {
         "watched": watched,
         "title": title,
         "rating": rating,
-        "release_date": releaseDate,
+        "release_date":
+            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
         "review": review,
       };
 }
 
-enum Model { myWatchlistWatchListMovies }
+enum Model { MYWATCHLIST_WATCHLIST }
 
-final modelValues = EnumValues(
-    {"mywatchlist.watchlistmovies": Model.myWatchlistWatchListMovies});
+final modelValues =
+    EnumValues({"mywatchlist.watchlist": Model.MYWATCHLIST_WATCHLIST});
 
 class EnumValues<T> {
   Map<String, T> map;

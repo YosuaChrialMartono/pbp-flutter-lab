@@ -8,14 +8,14 @@ import 'package:intl/intl.dart';
 
 class MyDetailPage extends StatefulWidget {
   const MyDetailPage({super.key, required this.modelWatchList});
-  final MyWatchListModel modelWatchList;
+  final Watchlist modelWatchList;
 
   @override
   State<MyDetailPage> createState() => _MyDetailPageState(modelWatchList);
 }
 
 class _MyDetailPageState extends State<MyDetailPage> {
-  MyWatchListModel model;
+  Watchlist model;
   _MyDetailPageState(this.model);
   @override
   Widget build(BuildContext context) {
