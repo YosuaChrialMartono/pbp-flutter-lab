@@ -68,6 +68,11 @@
 
 # Pertanyaan Tugas 9
 
+## Referensi :
+1. [Formatting datetime](https://www.folkstalk.com/2022/09/flutter-datetime-to-string-with-code-examples.html)
+
+
+## Jawaban
 1. Ya, data sebenarnya dapat diambil tanpa membuat model terlebih dahulu tapi hasilnya akan lebih baik apabila kita membuat model terlebih dahulu. Pembuatan model membuat data menjadi lebih terstruktur dan lebih mudah kita olah dalam program.
 
 2. Widget yang saya gunakan di program ini kurang lebih sama dengan tugas 8 dengan beberapa tambahan.
