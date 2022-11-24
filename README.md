@@ -65,3 +65,26 @@
 4. `Navigator` mengganti halaman pada flutter menggunakan konsep stack dimana top of the stack adalah halaman yang sekarang sedang kita tampilkan. Sehingga ketika kita ingin menampilkan halaman baru maka `Navigator` akan mempush page baru ke stack sedangkan ketika kita ingin kembali ke halaman sebelumnya, sebelum di push halaman baru maka `Navigator` akan mempop page yang ada di paling atas. Hal ini pun dapat dipengaruhi oleh banyak hal seperti `Navigator.push` dan `Navigator.pushReplacement` yang memengaruhi bagaimana `Navigator` mempush page baru ke stack.
 
 5. Untuk checklist diatas saya mengikuti dari tutorial 7 kemarin untuk implementasi drawer menu serta membuat form untuk menambah budget. Untuk navigasi saya juga menggunakan drawer tutorial 7 yang sudah dimodifikasi untuk memenuhi kebutuhan tugas ini. Untuk menampilkan data budget saya menggunakan class baru yakni budget untuk menyimpan segala input dari form sehingga dapat diakses oleh data_budget.dart dari form_budget.dart dan menggunakan `ListView.builder` saya dapat membuat card sebanyak list budget yang telah disimpan di dalam class. Dan untuk menampilkan datanya sendiri saya menggunakan widget `Card` 
+
+# Pertanyaan Tugas 9
+
+1. Ya, data sebenarnya dapat diambil tanpa membuat model terlebih dahulu tapi hasilnya akan lebih baik apabila kita membuat model terlebih dahulu. Pembuatan model membuat data menjadi lebih terstruktur dan lebih mudah kita olah dalam program.
+
+2. Widget yang saya gunakan di program ini kurang lebih sama dengan tugas 8 dengan beberapa tambahan.
+`FutureBuilder`: berfungsi untuk membangun apapun yang disuruh kepadanya berdasarkan hasil dari `future`
+`CircularProgressIndicator`: Sebagai icon untuk menunjukkan program sedang loading.
+`InkWell`: Untuk membuat list menjadi responsive dan kita dapat membuka detailed page dari masing-masing watch list.
+
+3. Untuk mekanisme pengambilan data kurang lebih sebagai berikut.
+- Menambahkan http ke projek untuk memungkinkan pengambilan data dari web
+- Membuat model untuk data yang akan kita ambil untuk memudahkan pengolahannya.
+- Membuat  `get` request untuk mengambil data dari web
+- Mengubah data yang telah didapatkan ke dalam bentuk json dan ke dalam model yang telah didefinisikan
+- Setelah data telah selesai didapatkan maka kita tinggal menampilkannya.
+
+4. Cara saya melakukan checklist tersebut adalah 
+- Menambahkan drawer baru untuk page watchlist
+- Membuat handler untuk request http untuk mengambil data dari web
+- Membuat model untuk watchlist menggunakan bantuan quicktype
+- Membuat mywatchlist page untuk menampilkan masing-masing film dalam bentuk card yang diarahkan ke masing-masing detail page
+- Membuat detail page untuk masing-masing film yang menampilkan semua data film tersebut.
